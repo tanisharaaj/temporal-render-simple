@@ -11,7 +11,7 @@ databases:
   region: oregon
 
 services:
-- type: pserv
+- type: web
   name: temporal
   autoDeploy: false
   plan: Free
@@ -88,12 +88,12 @@ services:
   - key: TEMPORAL_GRPC_HOST
     fromService:
       name: temporal
-      type: pserv
+      type: web
       property: host
 - type: web
   repo: https://github.com/render-examples/sample-temporal-app
   name: app-workflow-trigger
-  plan: Starter
+  plan: Free
   region: oregon
   env: go
   buildCommand: go build start/main.go
@@ -102,7 +102,7 @@ services:
   - key: TEMPORAL_CLUSTER_HOST
     fromService:
       name: temporal
-      type: pserv
+      type: web
       property: host
 - type: worker
   repo: https://github.com/render-examples/sample-temporal-app
@@ -116,5 +116,5 @@ services:
   - key: TEMPORAL_CLUSTER_HOST
     fromService:
       name: temporal
-      type: pserv
+      type: web
       property: host
