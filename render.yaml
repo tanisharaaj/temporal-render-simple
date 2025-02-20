@@ -7,7 +7,7 @@ databases:
 - name: temporal-db-visibility
   databaseName: visibility
   user: visibility
-  plan: Starter
+  plan: Free
   region: oregon
 
 services:
